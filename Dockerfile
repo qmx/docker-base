@@ -4,7 +4,7 @@ ARG SSH_HOST_KEYS_HASH=sha256:9a6630c2fbed11a3f806c5a5c1fe1550b628311d8701680fd7
 FROM qmxme/openssh@$SSH_HOST_KEYS_HASH as ssh_host_keys
 
 # base distro
-FROM debian:sid@sha256:fc6ae865d58728644a7242375b777a03c8933600c0aff9df491e745b15ba9d3e
+FROM debian:sid
 
 # setup env
 ENV DEBIAN_FRONTEND noninteractive
@@ -17,7 +17,7 @@ ENV LC_CTYPE en_US.UTF-8
 ENV LC_MESSAGES en_US.UTF-8
 
 # default package set
-RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \
+RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y \
 	apache2-utils \
 	apt-transport-https \
 	awscli \
@@ -66,7 +66,6 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y \
 	ncdu \
 	netcat-openbsd \
 	nodejs \
-	npm \
 	openjdk-11-jdk-headless \
 	openssh-server \
 	pkg-config \
