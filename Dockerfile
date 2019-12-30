@@ -65,7 +65,6 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y \
 	musl-tools \
 	ncdu \
 	netcat-openbsd \
-	nodejs \
 	openjdk-11-jdk-headless \
 	openssh-server \
 	pkg-config \
@@ -108,6 +107,11 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
 	dpkg-reconfigure --frontend=noninteractive locales && \
 	update-locale LANG=$LANG LC_ALL=$LC_ALL LANGUAGE=$LANGUAGE
 RUN update-ca-certificates -f
+
+# enable nodesource repo
+RUN curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+RUN echo "deb https://deb.nodesource.com/node_12.x sid main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+RUN apt-get update -qq && apt-get install -y nodejs && rm -rf /var/lib/apt/lists/*
 
 # enable yarn repo
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
