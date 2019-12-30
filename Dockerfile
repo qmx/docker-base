@@ -4,7 +4,7 @@ ARG SSH_HOST_KEYS_HASH=sha256:9a6630c2fbed11a3f806c5a5c1fe1550b628311d8701680fd7
 FROM qmxme/openssh@$SSH_HOST_KEYS_HASH as ssh_host_keys
 
 # base distro
-FROM debian:sid
+FROM debian:sid@sha256:fc6ae865d58728644a7242375b777a03c8933600c0aff9df491e745b15ba9d3e
 
 # setup env
 ENV DEBIAN_FRONTEND noninteractive
