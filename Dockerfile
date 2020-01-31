@@ -32,7 +32,7 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y \
 	default-mysql-client \
 	direnv \
 	dnsutils \
-	docker.io \
+	docker-compose \
 	entr \
 	exuberant-ctags \
 	fd-find \
