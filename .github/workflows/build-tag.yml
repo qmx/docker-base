@@ -1,4 +1,4 @@
-name: build
+name: build-tag
 
 on:
   push:
@@ -23,10 +23,11 @@ jobs:
       - name: get the version
         id: container
         uses: qmx/ghaction-container-tag@master
+        with:
+          dockerhub_namespace: "${{ secrets.DOCKERHUB_NAMESPACE }}"
 
       - name: login to docker hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: build and push latest
-        run: docker buildx build --platform linux/amd64,linux/arm/v7 --push -t "qmxme/base:${{ steps.container.outputs.version }}" .
-        
+        run: docker buildx build --platform linux/amd64,linux/arm/v7 --push -t "${{ steps.container.outputs.image }}:${{ steps.container.outputs.version }}" .
