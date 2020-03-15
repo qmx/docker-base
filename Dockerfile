@@ -68,6 +68,7 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y \
 	netcat-openbsd \
 	openjdk-11-jdk-headless \
 	openssh-server \
+	pcscd \
 	pkg-config \
 	protobuf-compiler \
 	pwgen \
