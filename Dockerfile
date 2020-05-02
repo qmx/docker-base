@@ -65,6 +65,7 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y \
 	mtr-tiny \
 	musl-tools \
 	ncdu \
+	neovim \
 	netcat-openbsd \
 	openjdk-11-jdk-headless \
 	openssh-server \
@@ -75,6 +76,7 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y \
 	python \
 	python3 \
 	python3-flake8 \
+	python3-neovim \
 	python3-pip \
 	python3-setuptools \
 	python3-venv \
