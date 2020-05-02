@@ -43,7 +43,7 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y \
 	git \
 	git-crypt \
 	gnupg \
-	golang-1.13 \
+	golang-1.14 \
 	htop \
 	hub \
 	hugo \
