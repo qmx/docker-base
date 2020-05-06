@@ -98,6 +98,7 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y \
 	unzip \
 	vim-nox \
 	wabt \
+	wget \
 	wireguard-tools \
 	zgen \
 	zip \
